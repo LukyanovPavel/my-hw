@@ -1,0 +1,30 @@
+.menu {
+    display: flex;
+    align-content: center;
+    position: relative;
+    top: 0;
+    left: -200px;
+    z-index: 1;
+    transition: all 0.3s linear;
+}
+
+.shift_menu {
+    display: flex;
+    align-content: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    transition: all 0.3s linear;
+}
+
+.links {
+    padding-left: 12px;
+}
+
+.links:hover {
+    color: grey;
+}
+
+.links:active {
+    color: lightgray;
+}
