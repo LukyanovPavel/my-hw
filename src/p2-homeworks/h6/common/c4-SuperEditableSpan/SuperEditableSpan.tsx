@@ -29,21 +29,25 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
 ) => {
     const [editMode, setEditMode] = useState<boolean>(false)
     const {children, onDoubleClick, className, ...restSpanProps} = spanProps || {}
-
     const onEnterCallback = () => {
         // setEditMode() // выключить editMode при нажатии Enter
+        setEditMode(!editMode)
 
         onEnter && onEnter()
     }
     const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
         // setEditMode() // выключить editMode при нажатии за пределами инпута
+        setEditMode(!editMode)
 
         onBlur && onBlur(e)
     }
     const onDoubleClickCallBack = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
         // setEditMode() // включить editMode при двойном клике
-
+        setEditMode(!editMode)
         onDoubleClick && onDoubleClick(e)
+    }
+    const onChangeCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
+        restProps.onChangeText && restProps.onChangeText(e.currentTarget.value)
     }
 
     const spanClassName = `${'сделать красивый стиль для спана'} ${className}`
@@ -56,7 +60,7 @@ const SuperEditableSpan: React.FC<SuperEditableSpanType> = (
                         autoFocus // пропсу с булевым значением не обязательно указывать true
                         onBlur={onBlurCallback}
                         onEnter={onEnterCallback}
-
+                        onChange={onChangeCallback}
                         {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
                     />
                 ) : (

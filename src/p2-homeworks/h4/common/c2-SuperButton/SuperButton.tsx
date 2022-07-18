@@ -15,9 +15,14 @@ const SuperButton: React.FC<SuperButtonPropsType> = (
     }
 ) => {
     const finalClassName = `${red ? s.red : s.default} ${className}`
+    const onClickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        restProps.onClick && restProps.onClick(e)
+
+    }
 
     return (
         <button
+            onClick={onClickHandler}
             className={finalClassName}
             {...restProps} // отдаём кнопке остальные пропсы если они есть (children там внутри)
         />
