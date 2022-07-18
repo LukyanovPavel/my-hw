@@ -1,0 +1,11 @@
+.default {
+    background-color: aqua;
+}
+
+.default:disabled {
+    background-color: lightgray;
+}
+
+.red {
+    background: red;
+}
