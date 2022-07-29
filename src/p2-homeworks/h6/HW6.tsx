@@ -27,7 +27,6 @@ function HW6() {
                     value={value}
                     onChangeText={setValue}
                     spanProps={{children: value ? undefined : 'enter text...'}}
-
                 />
             </div>
             <SuperButton onClick={save}>save</SuperButton>
